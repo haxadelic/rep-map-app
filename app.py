@@ -72,7 +72,23 @@ clicked_state = st.selectbox("Or select your state:", df['state'])
 selected = rep_data[clicked_state]
 
 # Rep Display
+selected = rep_data[clicked_state]
+
 st.markdown("### Your Representative:")
+
+col1, col2 = st.columns([1, 3])
+
+with col1:
+    st.image(selected['photo'], width=100)
+
+with col2:
+    st.markdown(f"""
+    **{selected['name']}**  
+    *{selected['title']}*  
+    📞 {selected['phone']}  
+    📧 [{selected['email']}](mailto:{selected['email']})
+    """)
+
 
 col1, col2 = st.columns([1, 3])
 
